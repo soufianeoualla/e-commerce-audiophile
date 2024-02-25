@@ -7,7 +7,7 @@ import {
   removeAll,
   showCart,
 } from "../redux/cartReducer";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const quantity = useSelector((state) => state.cart.quantity);
@@ -15,6 +15,7 @@ const Cart = () => {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const location =useLocation().pathname.split('/')[1]
 
   const handleDelete = (index) => {
     dispatch(deleteProduct(products[index]));
@@ -30,6 +31,10 @@ const Cart = () => {
   };
   const handleRemoveAll = () => {
     dispatch(removeAll());
+    if(location === 'checkout'){
+      navigate('/')
+      dispatch(showCart())
+    } 
   };
   const handleCheckout = () => {
     dispatch(showCart());
