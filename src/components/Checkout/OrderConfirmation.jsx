@@ -21,7 +21,7 @@ const OrderConfirmation = ({ grandTotal }) => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className='w-[540px] p-12 bg-white absolute top-1/2 right-1/2 rounded-lg z-30 translate-x-[50%] translate-y-[-50%] md:w-[70%] sm:w-[80%] sm:p-8 sm:top-[129px] sm:translate-y-0 overflow-y-scroll '>
+    <div className='w-[540px] p-12 bg-white fixed sm:absolute top-1/2 right-1/2 rounded-lg z-30 translate-x-[50%] translate-y-[-50%] md:w-[70%] sm:w-[80%] sm:p-8 sm:top-[129px] sm:translate-y-0  '>
       <img src={check} alt='' />
       <h1 className='text-[32px] text-black font-bold mb-6 mt-8 sm:text-[24px] '>
         THANK YOU FOR YOUR ORDER
