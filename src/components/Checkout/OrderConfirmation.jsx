@@ -20,6 +20,7 @@ const OrderConfirmation = ({ grandTotal }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  const productQuantity =product.map((item)=>item.quantity)
   return (
     <div className='w-[540px] p-12 bg-white fixed sm:absolute top-1/2 right-1/2 rounded-lg z-30 translate-x-[50%] translate-y-[-50%] md:w-[70%] sm:w-[80%] sm:p-8 sm:top-[129px] sm:translate-y-0  '>
       <img src={check} alt='' />
@@ -61,12 +62,12 @@ const OrderConfirmation = ({ grandTotal }) => {
                 </span>
               </div>
             ))}
-          {quantity-1 > 0 &&
+          {(quantity-1 -productQuantity) > 0 &&
           <>
            <hr className='text-black text-opacity-15 mb-4' />
         <button onClick={()=>setViewAll(!viewAll)}
            className='flex justify-center items-center w-full text-black text-opacity-60 text-[12px] font-bold hover:underline '>
-            {!viewAll ? `and ${quantity - 1} other item(s)`:`View Less`}
+            {!viewAll ? `and ${quantity - 1 -productQuantity} other item(s)`:`View Less`}
           </button>
              </>
           }
