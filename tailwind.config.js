@@ -31,8 +31,6 @@ export default {
     },
     screens:{
       'md': {'max': '1024px'},
-      'sm': {'max': '600px'},
-
     },
     extend: {},
   },

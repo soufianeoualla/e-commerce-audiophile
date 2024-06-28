@@ -3,7 +3,6 @@
 @tailwind utilities;
 * {
   font-family: "Manrope", sans-serif;
-  box-sizing: border-box;
 }
 .wrapper {
   background: url("./components/assets/home/desktop/image-hero.jpg") no-repeat
@@ -54,10 +53,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
-}
+
 .lightbox {
   position: relative;
 }
@@ -72,24 +68,12 @@ input[type="number"] {
   z-index: 20;
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:768px) {
   .wrapper{
     background: url('./components/assets/home/tablet/image-header.jpg')no-repeat center center/cover;
   }
   .best-products > div:nth-child(2){
     background: url('./components/assets/home/tablet/image-speaker-zx7.jpg') top ;
-  }
-
-}
-@media screen and (max-width:600px){
-  .wrapper{
-    background: url('./components/assets/home/mobile/image-header.jpg')no-repeat center center/cover;
-  }
-  .best-products > div:nth-child(2){
-    background: url('./components/assets/home/mobile/image-speaker-zx7.jpg') right cover ;
-  }
-  input{
-    width: 100%;
   }
 
 }

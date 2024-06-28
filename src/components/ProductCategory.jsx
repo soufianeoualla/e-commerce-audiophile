@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 
 const ProductCategory = () => {
   return (
-    <section className='flex justify-between my-28 product-category md:px-10 sm:flex-col sm:items-center sm:gap-20 '>
-        <div className='w-[350px] h-[204px] flex flex-col items-center bg-gray rounded-lg relative md:w-[32.5%] md:h-[217px] sm:w-full  '>
+    <section className='flex justify-between my-28 product-category md:px-10 '>
+        <div className='w-[350px] h-[204px] flex flex-col items-center bg-gray rounded-lg relative md:w-[32.5%] md:h-[217px] '>
             <img className=' absolute top-[-50px] w-[181px] ' src={headphones} alt="" />
             <div className=' absolute bottom-8 flex justify-center items-center flex-col gap-4'>
 
@@ -20,7 +20,7 @@ const ProductCategory = () => {
             </Link>
             </div>
         </div>
-        <div className='w-[350px] h-[204px] flex flex-col items-center bg-gray rounded-lg relative md:w-[32.5%] md:h-[217px] sm:w-full sm:h-[]'>
+        <div className='w-[350px] h-[204px] flex flex-col items-center bg-gray rounded-lg relative md:w-[32.5%] md:h-[217px]'>
             <img className=' absolute top-[-50px]  w-[181px] ' src={speakers} alt="" />
             <div className=' absolute bottom-8 flex justify-center items-center flex-col gap-4'>
 
@@ -33,7 +33,7 @@ const ProductCategory = () => {
             </Link>
             </div>
         </div>
-        <div className='w-[350px] h-[204px] flex flex-col items-center bg-gray rounded-lg relative md:w-[32.5%] md:h-[217px] sm:w-full sm:h-[]'>
+        <div className='w-[350px] h-[204px] flex flex-col items-center bg-gray rounded-lg relative md:w-[32.5%] md:h-[217px]'>
             <img className=' absolute top-[-50px] w-[181px] ' src={earphones} alt="" />
             <div className=' absolute bottom-8 flex justify-center items-center flex-col gap-4'>
             <h2 className='font-bold text-lg md:text-base  '>EARPHONES</h2>

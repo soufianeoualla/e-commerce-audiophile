@@ -12,7 +12,7 @@ const BillingDetails = ({
       <span className='text-brown font-bold text-xs tracking-wider '>
         BILLING DETAILS
       </span>
-      <div className='grid grid-cols-2 gap-4 mt-4 mb-[53px] sm:grid-cols-1'>
+      <div className='grid grid-cols-2 gap-4 mt-4 mb-[53px]'>
         <label htmlFor='name'>
           <div className='flex justify-between items-center'>
             <b className={`${errorName && 'text-[#CD2C2C]'}`}>Name</b>

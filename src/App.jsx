@@ -1,37 +1,21 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  useFetcher,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./components/Layout";
-import Headphones from "./pages/Headphones";
-import Speakers from "./pages/Speakers";
-import Earphones from "./pages/Earphones";
 import ProductPage from "./pages/ProductPage";
-import { useDispatch, useSelector } from "react-redux";
 import Checkout from "./pages/Checkout";
-import { showMenu } from "./redux/menuReducer";
+import CategoryPage from "./pages/CategoryPage";
+import { Toaster } from "react-hot-toast";
 
 function App() {
-  const isShowing = useSelector((state) => state.cart.isShowing);
-  const menu = useSelector((state) => state.menu.value);
-  const dispatch = useDispatch();
-
   return (
     <>
-      <div
-        onClick={() => menu === true && dispatch(showMenu())}
-        className={`${(isShowing || menu) && "lightbox z-10"}`}
-      >
+      <div>
         <Router>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
-              <Route path="/headphones" element={<Headphones />} />
-              <Route path="/speakers" element={<Speakers />} />
-              <Route path="/earphones" element={<Earphones />} />
+              <Route path="/:category" element={<CategoryPage />} />
+
               <Route path="/product/:name" element={<ProductPage />} />
             </Route>
 
@@ -39,6 +23,7 @@ function App() {
           </Routes>
         </Router>
       </div>
+      <Toaster/>
     </>
   );
 }

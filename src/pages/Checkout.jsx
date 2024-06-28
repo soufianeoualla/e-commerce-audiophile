@@ -47,20 +47,15 @@ const Checkout = () => {
     if (!values.country) {
       errors.country = "Required";
     }
-    if(selected === 0){
-
-      if (!values.number) {
-        errors.number = "Required";
-      }
-      if (!values.pin) {
-        errors.pin = "Required";
-      }
+    if (!values.number) {
+      errors.number = "Required";
+    }
+    if (!values.pin) {
+      errors.pin = "Required";
     }
 
     return errors;
   };
-  const paymentMethods = ["e-Money", "Cash On Delivery"];
-  const [selected, setSelected] = useState(0);
 
   const formik = useFormik({
     initialValues: {
@@ -86,16 +81,16 @@ const Checkout = () => {
       <div className=' bg-black'>
         <Header />
       </div>
-      <div className=' bg-[#F2F2F2] py-[143px] z-0 md:bg-white md:py-[138px]  '>
+      <div className=' bg-[#F2F2F2] py-[143px] z-0  '>
         <form  onSubmit={formik.handleSubmit} action=''
-        className='flex justify-between items-start  max-w-[1110px] m-auto relative md:flex-col  '>
+        className='flex justify-between items-start  w-[1110px] m-auto relative  '>
           <button
             onClick={HandleGoBack}
-            className=' mb-14 text-dark-gray absolute top-[-63px] hover:text-brown md:top-[-60px] md:left-8 '
+            className=' mb-14 text-dark-gray absolute top-[-63px] hover:text-brown'
           >
             Go Back
           </button>
-          <div className='w-[730px] p-12 bg-white rounded-lg md:w-full md:px-12 md:py-0 '>
+          <div className='w-[730px] p-12 bg-white rounded-lg'>
             <h1 className='text-[32px] font-bold text-black mb-10'>CHECKOUT</h1>
             <div >
               <BillingDetails
@@ -126,9 +121,6 @@ const Checkout = () => {
                 handleOnchange={formik.handleChange}
                 errorNumber={formik.errors.number}
                 errorPin={formik.errors.pin}
-                paymentMethods={paymentMethods}
-                selected={selected}
-                setSelected={setSelected}
               />
             </div>
           </div>
@@ -138,6 +130,7 @@ const Checkout = () => {
             totalPrice={totalPrice}
             grandTotal={grandTotal}
             shipping={shipping}
+            setConfirm={setConfirm}
           />
         </form>
         {confirm && <OrderConfirmation grandTotal={grandTotal} />}

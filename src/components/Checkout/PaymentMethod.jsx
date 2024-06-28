@@ -1,3 +1,4 @@
+import { useState } from "react";
 import cashOnDelivery from "../assets/checkout/icon-cash-on-delivery.svg";
 
 const PaymentMethod = ({
@@ -6,11 +7,9 @@ const PaymentMethod = ({
   handleOnchange,
   errorNumber,
   errorPin,
-  paymentMethods,
-  selected,
-  setSelected
 }) => {
-  
+  const paymentMethods = ["e-Money", "Cash On Delivery"];
+  const [selected, setSelected] = useState(0);
 
   return (
     <>
@@ -18,12 +17,12 @@ const PaymentMethod = ({
         <span className='text-brown font-bold text-xs tracking-wider '>
           PAYMENT DETAILS
         </span>
-        <div className='flex justify-between mt-4 sm:flex-col sm:gap-8'>
+        <div className='flex justify-between mt-4'>
           <b className='text-[12px] text-black'>Payment Method </b>
-          <div className='grid gap-4 md:w-[49%] sm:w-full  '>
+          <div className='grid gap-4'>
             {paymentMethods.map((n, index) => (
               <div
-                className={`w-[309px] md:w-full h-[56px] rounded-lg border border-[#CFCFCF] flex items-center gap-4 p-4 text-black font-bold text-[14px] cursor-pointer hover:border-brown ${
+                className={`w-[309px] h-[56px] rounded-lg border border-[#CFCFCF] flex items-center gap-4 p-4 text-black font-bold text-[14px] cursor-pointer hover:border-brown ${
                   selected === index && "border-brown"
                 } `}
                 onClick={() => setSelected(index)}
@@ -52,8 +51,8 @@ const PaymentMethod = ({
       )}
 
       {selected === 0 && (
-        <div className='flex justify-between items-center mt-8 md:w-full sm:flex-col sm:gap-4'>
-          <label htmlFor='number' className='w-[309px] md:w-[49%] sm:w-full'>
+        <div className='flex justify-between items-center mt-8'>
+          <label htmlFor='number' className='w-[309px]'>
           <div className='flex  justify-between items-center'>
             <b className={`${errorNumber && 'text-[#CD2C2C]'}`}>e-Money Number</b>
             {errorNumber && <small className="text-[#CD2C2C] text-[12px] font-medium">{errorNumber} </small>}
@@ -66,7 +65,7 @@ const PaymentMethod = ({
               onChange={handleOnchange}
             />
           </label>
-          <label htmlFor='pin' className='w-[309px] md:w-[49%] sm:w-full'>
+          <label htmlFor='pin' className='w-[309px]'>
           <div className='flex  justify-between items-center'>
             <b className={`${errorPin && 'text-[#CD2C2C]'}`}>e-Money PIN</b>
             {errorPin && <small className="text-[#CD2C2C] text-[12px] font-medium">{errorPin} </small>}
